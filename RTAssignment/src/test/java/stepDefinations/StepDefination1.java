@@ -1,4 +1,6 @@
-package stepDefinations;
+  package stepDefinations;
+
+import static org.testng.Assert.assertEquals;
 
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -21,7 +23,11 @@ public class StepDefination1 {
 	    public void user_is_landing_on_application() throws Throwable {
 		 
 		 driver = Base.getdriver();
-		
+		 
+		 String Actualresult = driver.getTitle();
+		 String Expectedresult = "Amazon.com. Spend less. Smile more.";
+		Assert.assertTrue(Actualresult.contains(Expectedresult));
+		System.out.println("User Landed on Verified Page");
 		 
 	 }
 
@@ -41,9 +47,10 @@ public class StepDefination1 {
 	    @Then("^user should redirect to Item dispaly page$")
 	    public void user_should_redirect_to_item_dispaly_page() throws Throwable {
 	    	
-	    	WebElement mobile = driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[1]/div[1]/div/span[3]/div[2]/div[1]/div/span/div/div/div[2]/div[2]/div/div/div[1]/h2/a/span"));
+	    	WebElement mobile = driver.findElement(By.xpath("//span[contains(text(),'Apple iPhone 11 Pro, 64GB, Space Gray - Unlocked (')]"));
 	    	
 	    	mobile.click();
+	    	
 	    	
 	     
 	    }
